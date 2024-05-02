@@ -1,0 +1,10 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: product-service
+  data:
+    mongodb:
+      uri: mongodb://root:example@localhost:27017/productdb?authSource=admin
+      database: productdb
+      auto-index-creation: true

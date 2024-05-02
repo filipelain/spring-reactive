@@ -1,0 +1,2 @@
+rootProject.name = 'Spring-reactive'
+include "product-service", "user-service"

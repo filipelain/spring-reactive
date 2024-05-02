@@ -1,0 +1,38 @@
+### GET All products
+GET localhost:8091/product
+
+### Save 1 product
+POST localhost:8091/product
+content-type: application/json
+
+{
+"description": "Product 3",
+"price": 300
+}
+
+### get 1 product
+GET localhost:8091/product/663298dbb928572d6733c94b
+
+### update 1 product
+PUT localhost:8091/product/663298dbb928572d6733c94b
+content-type: application/json
+
+{
+  "description": "Product 1",
+  "price": 120.40
+}
+
+### partial update 1 product
+PATCH localhost:8091/product/663298dbb928572d6733c94b
+content-type: application/json
+
+{
+  "price": 150.40
+}
+
+### delete 1 product
+DELETE localhost:8091/product/663298dbb928572d6733c94b
+
+
+### Find product price beetwen 2 values
+GET localhost:8091/product/price-range?min=100&max=200
