@@ -3,7 +3,7 @@ package br.com.estudo.productservice.service;
 import static br.com.estudo.productservice.converter.ProductConverter.partialUpdate;
 
 import br.com.estudo.productservice.converter.ProductConverter;
-import br.com.estudo.productservice.dto.ProductDto;
+import br.com.estudo.domain.product.model.dto.ProductDto;
 import br.com.estudo.productservice.repository.ProductRepository;
 import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
@@ -11,11 +11,13 @@ import org.springframework.data.domain.Range;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.Sinks.Many;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
+    private final Many<ProductDto> sink;
 
 
     public Flux<ProductDto> findAll() {
@@ -32,7 +34,8 @@ public class ProductService {
 
     public Mono<ProductDto> create(Mono<ProductDto> productDto) {
         return productDto
-                .flatMap(this::save);
+                .flatMap(this::save)
+                .doOnNext(sink::tryEmitNext);
     }
 
     public Mono<ProductDto> update(String id, Mono<ProductDto> productDtoMono) {

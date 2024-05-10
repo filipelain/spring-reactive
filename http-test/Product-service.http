@@ -6,12 +6,17 @@ POST localhost:8091/product
 content-type: application/json
 
 {
-"description": "Product 3",
+"description": "Product 36",
 "price": 300
 }
 
+
+### Stream 1 product
+GET localhost:8091/product/stream
+accept: text/event-stream
+
 ### get 1 product
-GET localhost:8091/product/663298dbb928572d6733c94b
+GET localhost:8091/product/66329d5aea2ef74106962ce6
 
 ### update 1 product
 PUT localhost:8091/product/663298dbb928572d6733c94b

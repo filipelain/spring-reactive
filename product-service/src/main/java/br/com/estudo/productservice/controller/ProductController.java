@@ -1,6 +1,6 @@
 package br.com.estudo.productservice.controller;
 
-import br.com.estudo.productservice.dto.ProductDto;
+import br.com.estudo.domain.product.model.dto.ProductDto;
 import br.com.estudo.productservice.service.ProductService;
 import java.math.BigDecimal;
 import java.net.URI;

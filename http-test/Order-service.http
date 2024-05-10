@@ -1,0 +1,22 @@
+### GET request to example server
+GET http://localhost:8093/order/user/1
+
+### POST Order
+POST http://localhost:8093/order
+content-type: application/json
+
+{
+    "userId": 1,
+    "productId": "66329d48ea2ef74106962ce4000"
+}
+
+### GET
+GET http://localhost:8093/order/user/1
+
+
+### GET request to example server
+GET http://localhost:8093/order/test/product/66329d48ea2ef74106962ce4
+
+
+### GET request to example server2
+GET http://localhost:8093/order/test/user/1

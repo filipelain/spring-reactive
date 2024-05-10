@@ -1,4 +1,4 @@
-package br.com.estudo.productservice.dto;
+package br.com.estudo.domain.product.model.dto;
 
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;

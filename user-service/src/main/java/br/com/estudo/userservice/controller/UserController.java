@@ -1,6 +1,6 @@
 package br.com.estudo.userservice.controller;
 
-import br.com.estudo.userservice.dto.UserDto;
+import br.com.estudo.domain.user.model.dto.UserDto;
 import br.com.estudo.userservice.service.UserService;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -36,21 +37,21 @@ public class UserController {
     }
 
     @PostMapping
-    public Mono<ResponseEntity<UserDto>> create(Mono<UserDto> userDto) {
+    public Mono<ResponseEntity<UserDto>> create(@RequestBody Mono<UserDto> userDto) {
         return userService.create(userDto)
                 .map(user -> ResponseEntity.created(URI.create("/user/" + user.getId()))
                         .body(user));
     }
 
     @PutMapping("/{id}")
-    public Mono<ResponseEntity<UserDto>> update(@PathVariable Integer id, Mono<UserDto> userDto) {
+    public Mono<ResponseEntity<UserDto>> update(@PathVariable Integer id, @RequestBody Mono<UserDto> userDto) {
         return userService.update(id, userDto)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
     @PatchMapping("/{id}")
-    public Mono<ResponseEntity<UserDto>> updatePartial(@PathVariable Integer id, Mono<UserDto> userDto) {
+    public Mono<ResponseEntity<UserDto>> updatePartial(@PathVariable Integer id,@RequestBody Mono<UserDto> userDto) {
         return userService.updatePartial(id, userDto)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());

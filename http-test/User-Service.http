@@ -1,0 +1,35 @@
+### GET All users
+GET http://localhost:8092/user
+
+### GET User by id
+GET http://localhost:8092/user/1
+
+### POST Create user
+POST http://localhost:8092/user
+content-type: application/json
+
+{
+  "name": "John Doe 4",
+  "balance": 410
+}
+
+
+### Add money to user
+PATCH http://localhost:8092/user/1
+content-type: application/json
+
+{
+  "balance": 500
+}
+
+### POST create transaction
+POST http://localhost:8092/user/transaction
+content-type: application/json
+
+{
+  "userId": 1,
+  "amount": 90
+}
+
+### GET All transactions
+GET http://localhost:8092/user/transaction/1

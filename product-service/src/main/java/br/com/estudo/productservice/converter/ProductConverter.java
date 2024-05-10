@@ -1,6 +1,6 @@
 package br.com.estudo.productservice.converter;
 
-import br.com.estudo.productservice.dto.ProductDto;
+import br.com.estudo.domain.product.model.dto.ProductDto;
 import br.com.estudo.productservice.entity.ProductEntity;
 import java.util.Optional;
 

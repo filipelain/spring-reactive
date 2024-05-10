@@ -1,4 +1,4 @@
-package br.com.estudo.userservice.dto;
+package br.com.estudo.domain.user.model.dto;
 
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;

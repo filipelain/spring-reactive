@@ -9,6 +9,16 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=vinsguru
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=userdb
+    volumes:
+      - ./docker-volume/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
 volumes:
   mongodb_data_container:

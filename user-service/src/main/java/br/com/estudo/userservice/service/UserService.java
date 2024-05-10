@@ -1,7 +1,7 @@
 package br.com.estudo.userservice.service;
 
 import br.com.estudo.userservice.converter.UserConverter;
-import br.com.estudo.userservice.dto.UserDto;
+import br.com.estudo.domain.user.model.dto.UserDto;
 import br.com.estudo.userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

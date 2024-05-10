@@ -29,16 +29,27 @@ subprojects {
             extendsFrom annotationProcessor
         }
     }
+    bootJar {
+        mainClass = findMainClassName(project)
+    }
 
     dependencies {
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation platform('org.junit:junit-bom:5.10.0')
         testImplementation 'org.junit.jupiter:junit-jupiter'
+        if (project.name != 'Domain') {
+            implementation project(':Domain')
+        }
+    }
 
+    test {
+        useJUnitPlatform()
     }
 }
 
-test {
-    useJUnitPlatform()
+
+
+def findMainClassName(Project project) {
+    return "${project.group}.${project.name.capitalize()}Application"
 }

@@ -13,6 +13,6 @@ public interface UserRepository extends ReactiveCrudRepository<UserEntity, Integ
 
     //think twice before using this query
     @Modifying
-    @Query("UPDATE user SET balance = balance + :amount WHERE id = :userId and balance + :amount >= 0")
+    @Query("UPDATE users SET balance = balance - :amount WHERE id = :userId and balance - :amount >= 0")
     Mono<Boolean> updateUserBalance(Integer userId, BigDecimal amount);
 }

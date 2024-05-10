@@ -1,6 +1,6 @@
 package br.com.estudo.userservice.converter;
 
-import br.com.estudo.userservice.dto.UserDto;
+import br.com.estudo.domain.user.model.dto.UserDto;
 import br.com.estudo.userservice.entity.UserEntity;
 import java.util.Optional;
 
